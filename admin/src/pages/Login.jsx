@@ -1,6 +1,6 @@
 import axios from "axios";
 import { useContext, useState } from "react";
-import { authdata } from "../../Context/authapi";
+import { authdata } from "../../Context/Authapi";
 import { useNavigate } from "react-router-dom";
 const Login = () => {
   let [email,setemail] = useState("");   
