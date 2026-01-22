@@ -3,7 +3,7 @@ import { MdDownloadDone } from "react-icons/md";
 import { BsBoxArrowLeft } from "react-icons/bs";
 import { useNavigate } from 'react-router-dom';
 import { useContext } from 'react';
-import { authdata } from '../../Context/authapi';
+import { authdata } from '../../Context/Authapi';
 const Seeapplyjobs = () => {
   let navigate = useNavigate()
   let {usersaccounts} = useContext(authdata)
