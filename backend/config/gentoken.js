@@ -1,7 +1,7 @@
 const jwt = require("jsonwebtoken");
 const env = require('dotenv');
 env.config();
-const gentoken=async(id)=>{
+module.exports.gentoken=async(id)=>{
           try{
     const token = await jwt.sign({id},process.env.JWTSECRET,{
           expiresIn:"7d"
@@ -11,8 +11,7 @@ const gentoken=async(id)=>{
       console.log("err in gentoken",err)
           }
 }
-module.exports = gentoken;
-const gentoken1=async(id)=>{
+module.exports.gentoken1=async(id)=>{
           try{
     const token = await jwt.sign({id},process.env.JWTSECRET,{
           expiresIn:"7d"
@@ -22,8 +21,7 @@ const gentoken1=async(id)=>{
      console.log("err in gentoken",err)
           }
 }
-module.exports = gentoken1;
-const gentoken2=async(email)=>{
+module.exports.gentoken2=async(email)=>{
           try{
     const token = await jwt.sign({email},process.env.JWTSECRET,{
           expiresIn:"7d"
@@ -33,4 +31,3 @@ const gentoken2=async(email)=>{
      console.log("err in gentoken",err)
           }
 }
-module.exports = gentoken2;
