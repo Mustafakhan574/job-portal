@@ -1,0 +1,15 @@
+const express = require("express");
+const { curuser, usersignup, userlogin, userlogout } = require("../controllers/usersauth");
+const isauth = require("../middleware/authmiddleware");
+const adminauth = require("../middleware/adminauth");
+const { adminlogin, getadmin, usersaccounts, companiesaccounts } = require("../controllers/admin");
+let userRouter= express.Router();
+userRouter.post("/usersignup",usersignup);
+userRouter.post("/userlogin",userlogin);
+userRouter.get("/userlogout",userlogout);
+userRouter.get("/curuser",isauth,curuser);
+userRouter.post("/adminlogin",adminlogin);
+userRouter.get("/curadmin",adminauth,getadmin);
+userRouter.get("/usersaccounts",adminauth,usersaccounts);
+userRouter.get("/companiesaccounts",adminauth,companiesaccounts);
+module.exports = userRouter;
