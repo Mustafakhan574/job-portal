@@ -4,7 +4,7 @@ import { useDispatch } from "react-redux";
 import { setapplyposts, setuserdata } from "../redux/userSlice";
 export const userdatacontext = createContext();
 const Userdata=({children})=>{ 
- let server = "http://localhost:3000"
+ let server = "https://job-portal-backend-nyys.onrender.com"
  let [recuser,setrecuser] = useState("")
  let dispatch = useDispatch()
     const curuser=async()=>{
