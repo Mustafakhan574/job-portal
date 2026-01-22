@@ -23,7 +23,7 @@ exports.usersignup=async(req,res)=>{
           name,email,password:hashedpassword
    })
    let token = await gentoken(user._id);
-     res.cookie("usertoken",token,{
+     res.cookie("token",token,{
         httpOnly : true,
         secure:true,
         sameSite:"none",
@@ -49,7 +49,7 @@ exports.userlogin=async(req,res)=>{
           return res.status(409).json({message:"wrong password"})
    }
    let token = await gentoken(existuser._id);
-     res.cookie("usertoken",token,{
+     res.cookie("token",token,{
         httpOnly : true,
         secure:true,
         sameSite:"none",
