@@ -60,6 +60,7 @@ exports.userlogin=async(req,res)=>{
      })
      return res.status(200).json(existuser)
           }catch(err){
+                    console.error("LOGIN ERROR:", err.message);
     return res.status(400).json({message:"err in login",err})
           }
 }
