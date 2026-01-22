@@ -1,6 +1,7 @@
 const jwt = require("jsonwebtoken");
 const isauth=async(req,res,next)=>{
           try{
+          console.log("Cookies:", req.cookies);          
          let {token} =  req.cookies;
         if(!token){
           return res.status(400).json({message:"token is missing"})
