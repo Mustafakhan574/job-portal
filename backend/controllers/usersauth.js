@@ -37,6 +37,9 @@ exports.usersignup=async(req,res)=>{
 exports.userlogin=async(req,res)=>{
           try{
    const {email,password} = req.body;
+                    if (!email || !password) {
+  return res.status(400).json({ message: "email or password missing" });
+}
    let existuser = await User.findOne({email})
    if(!existuser){
           return res.status(409).json({message:"go to signup"})
