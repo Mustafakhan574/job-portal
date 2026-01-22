@@ -6,7 +6,7 @@ import {useNavigate} from "react-router-dom"
 import { setcopyuserdata, setuserdata } from '../redux/userSlice';
 import { MdLogout } from "react-icons/md";
 import { useContext } from 'react';
-import { userdatacontext } from '../context/usercontext';
+import { userdatacontext } from '../context/Usercontext';
 const Nav = () => {
   let navigate = useNavigate()
   let [input,setinput] = useState("")
