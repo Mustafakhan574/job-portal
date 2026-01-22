@@ -1,6 +1,6 @@
 import React from 'react'
 import Nav from '../components/Nav'
-import Posts from '../components/posts'
+import Posts from '../components/Posts'
 
 const Home = () => {
   return (
