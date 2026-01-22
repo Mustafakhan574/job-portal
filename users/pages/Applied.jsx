@@ -4,7 +4,7 @@ import axios from 'axios';
 import { BsBoxArrowLeft } from "react-icons/bs";
 import { useNavigate } from 'react-router-dom'
 import { useContext } from 'react';
-import { userdatacontext } from '../context/usercontext';
+import { userdatacontext } from '../context/Usercontext';
 import { useSelector } from 'react-redux'
 const Applied = () => {
           let [username,setusername] = useState("")   
