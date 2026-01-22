@@ -24,7 +24,7 @@ exports.companysignup=async(req,res)=>{
           company,email,password:hashedpassword
    })
    let token = await  gentoken1(newcompany._id);
-     res.cookie("companytoken",token,{
+     res.cookie("token",token,{
         httpOnly : true,
         secure:true,
         sameSite:"none",
@@ -50,7 +50,7 @@ exports.companylogin=async(req,res)=>{
           return res.status(409).json({message:"wrong password"})
    }
    let token = await gentoken1(existcompany._id);
-     res.cookie("companytoken",token,{
+     res.cookie("token",token,{
         httpOnly : true,
         secure:true,
         sameSite:"none",
