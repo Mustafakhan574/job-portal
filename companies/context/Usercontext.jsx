@@ -40,7 +40,7 @@ const Userdata=({children})=>{
            } 
        const handlelogout=async()=>{
            try{
-        let result = await axios.get(`${server}/company/companylogout`)
+        let result = await axios.get(`${server}/company/companylogout`,{withCredentials: true})
         console.log(result.data)
         setreccompany(null)
            }catch(err){
