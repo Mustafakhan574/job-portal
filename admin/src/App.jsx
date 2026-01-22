@@ -8,7 +8,7 @@ import Companies from './pages/Companies'
 import Users from './pages/Users'
 import Login from './pages/Login'
 import { useContext } from 'react'
-import { authdata } from '../Context/authapi'
+import { authdata } from '../Context/Authapi'
 function App() {
   let {curadmin} = useContext(authdata)
   return (
