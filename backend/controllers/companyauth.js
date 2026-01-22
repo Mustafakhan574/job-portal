@@ -63,7 +63,7 @@ exports.companylogin=async(req,res)=>{
 }
 exports.companylogout=async(req,res)=>{
           try{
-           res.clearCookie("token");
+           res.clearCookie("companytoken");
            return res.status(200).json({message:"logout successfully"})
           }catch(err){
                     return res.status(400).json({message:"err in logout",err})
