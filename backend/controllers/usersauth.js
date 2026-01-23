@@ -51,6 +51,7 @@ exports.userlogin=async(req,res)=>{
    if(!verifypassword){
           return res.status(409).json({message:"wrong password"})
    }
+console.log("gentoken1 type:", typeof gentoken1);
    let token = await gentoken1(existuser._id);
      res.cookie("token",token,{
         httpOnly : true,
