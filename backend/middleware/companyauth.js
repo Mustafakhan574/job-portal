@@ -6,6 +6,8 @@ const companyauth=async(req,res,next)=>{
           return res.status(400).json({message:"token is missing"})
         }
         let verifytoken = await jwt.verify(token,process.env.JWTSECRET)
+                    console.log("JWT:", process.env.JWTSECRET);
+
           if(!verifytoken){
           return res.status(400).json({message:"token not verify "})
      }
