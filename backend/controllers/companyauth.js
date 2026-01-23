@@ -1,7 +1,7 @@
 const validator = require("validator");
 const User = require("../model/usermodel");
 const bcrypt = require("bcryptjs");
-const gentoken1 = require("../config/gentoken");
+const {gentoken1} = require("../config/gentoken");
 const Company = require("../model/companymodel");
 exports.companysignup=async(req,res)=>{
           try{
