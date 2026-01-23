@@ -58,7 +58,11 @@ exports.companylogin=async(req,res)=>{
      })
      return res.status(200).json(existcompany)
           }catch(err){
-    res.status(400).json({message:"err in login",err})
+   console.error("LOGIN ERROR 👉", err);
+  return res.status(500).json({
+    message: "err in login",
+    error: err.message
+  });
           }
 }
 exports.companylogout=async(req,res)=>{
