@@ -1,8 +1,10 @@
 import React from 'react'
 import { BsBoxArrowLeft } from "react-icons/bs";
 import {useSelector} from 'react-redux'
+import {useNavigate} from 'react-router-dom'
 const Responses = () => {
 let {responses} = useSelector((state)=>state.company)
+  let navigate = useNavigate()
   return (
     <div className='w-full min-h-screen bg-[#000000b4] flex flex-col items-center gap-4 text-white'>
               <BsBoxArrowLeft className='text-[30px] text-[white]  fixed left-0' onClick={()=>navigate("/")}/>
