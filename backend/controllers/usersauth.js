@@ -1,6 +1,6 @@
 const validator = require("validator");
 const bcrypt = require("bcryptjs");
-const gentoken = require("../config/gentoken");
+const {gentoken1} = require("../config/gentoken");
 const User = require("../model/usermodel");
 exports.usersignup=async(req,res)=>{
           try{
@@ -22,7 +22,7 @@ exports.usersignup=async(req,res)=>{
    let user = await User.create({
           name,email,password:hashedpassword
    })
-   let token = await gentoken(user._id);
+   let token = await gentoken1(user._id);
      res.cookie("token",token,{
         httpOnly : true,
         secure:true,
@@ -51,7 +51,7 @@ exports.userlogin=async(req,res)=>{
    if(!verifypassword){
           return res.status(409).json({message:"wrong password"})
    }
-   let token = await gentoken(existuser._id);
+   let token = await gentoken1(existuser._id);
      res.cookie("token",token,{
         httpOnly : true,
         secure:true,
