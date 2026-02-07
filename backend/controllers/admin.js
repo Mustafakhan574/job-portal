@@ -1,5 +1,5 @@
 const validator = require("validator");
-const gentoken2 = require("../config/gentoken");
+const {gentoken2} = require("../config/gentoken");
 const Company = require("../model/companymodel");
 const User = require("../model/usermodel");
 exports.adminlogin=async(req,res)=>{
