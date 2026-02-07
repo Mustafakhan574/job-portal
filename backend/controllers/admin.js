@@ -2,6 +2,10 @@ const validator = require("validator");
 const {gentoken2} = require("../config/gentoken");
 const Company = require("../model/companymodel");
 const User = require("../model/usermodel");
+const tokenFile = require("../config/gentoken");
+console.log("tokenFile:", tokenFile);
+console.log("gentoken2:", tokenFile.gentoken2);
+
 exports.adminlogin=async(req,res)=>{
           try{
    const {email,password} = req.body;
