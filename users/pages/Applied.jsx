@@ -46,7 +46,7 @@ let result = await axios.post(`${server}/posts/apply/${postid}`,formData,{withCr
     <div className='w-full min-h-screen bg-[#000000b4] flex flex-col items-center gap-4'>
           <BsBoxArrowLeft className='text-[30px] text-[white]  fixed left-0' onClick={()=>navigate("/")}/>
          <h1 className='text-white text-[40px] text-center pt-[30px]'>Apply job</h1>
-         <form onSubmit={apply} className='flex flex-col w-[90%] gap-8 items-center mb-[40px]'>
+         <form onSubmit={apply} className='flex flex-col w-[90%] gap-8 items-center mb-[70px]'>
          <div className='flex flex-col text-white w-[90%] '>
            <label htmlFor="username" className='text-[25px] font-medium'>username</label>
            <input type="text" id='username' placeholder='Enter user name...' className='border  px-6 py-4 bg-white placeholder:text-black rounded-lg text-black' onChange={(e)=>setusername(e.target.value)} value={username}/>
