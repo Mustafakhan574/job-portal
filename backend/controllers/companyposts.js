@@ -1,7 +1,9 @@
+const uploadOnCloudinary = require("../config/cloudinary");
 const Apply = require("../model/appliedpostmoel");
 const Company = require("../model/companymodel");
 const Post = require("../model/companypostmodel");
 const User = require("../model/usermodel");
+
 
 exports.uploadjob=async(req,res)=>{
           try{ 
@@ -57,13 +59,18 @@ exports.allposts=async(req,res)=>{
          return res.status(500).json({message:"err in get all  posts",error:err.message})   
       }
 }
+
 exports.userappliedjobs=async(req,res)=>{
       try{
    let {username,phonenumber,email,address} = req.body;
    let {postid} = req.params
+   if (!req.file) {
+      return res.status(404).json({ message: "resume is required" });
+    }
    if(!username || !phonenumber || !email || !address){
       return res.status(404).json({message:"enter all details"})
    }  
+
    let curuser = await User.findById(req.userid)
    if(!curuser){
       return res.status(404).json({message:"curuser not found"})
@@ -73,8 +80,10 @@ exports.userappliedjobs=async(req,res)=>{
    if(!applypost){
       return res.status(404).json({message:"apply post not found"})
    }
+   const resumeUrl = await uploadOnCloudinary(req.file.path);
    let postcreate = await Apply.create({
-      username,email,phonenumber,address,user:curuser._id,post:applypost._id,company:applypost.companyid
+      username,email,phonenumber,address,user:curuser._id,post:applypost._id,company:applypost.companyid,
+       resumeUrl: resumeUrl,
    })
    return res.status(201).json(postcreate)
       }catch(err){

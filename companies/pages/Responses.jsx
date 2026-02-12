@@ -16,6 +16,22 @@ let {responses} = useSelector((state)=>state.company)
               <p className='text-[10px]  font-medium sm:text-[15px]'>{posts.phonenumber}</p>
               <p className='text-[10px]  font-medium sm:text-[15px]'>{posts.email}</p>
               <p className='text-[10px]  font-medium sm:text-[15px]'>{posts.post.jobtitle}</p>
+              {posts.resumeUrl ? (
+  <a
+    href={posts.resumeUrl}
+    target="_blank"
+    rel="noreferrer"
+    className="text-[10px] sm:text-[15px] font-medium text-blue-600 underline"
+  >
+    Resume
+  </a>
+) : (
+  <p className="text-[10px] sm:text-[15px] font-medium text-red-600">
+    No Resume
+  </p>
+)}
+
+
               </div>
             ))}
          </div>

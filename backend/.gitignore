@@ -1,1 +1,5 @@
 .env
+backend/node_modules/
+users/node_modules/
+companies/node_modules/
+admin/node_modules/

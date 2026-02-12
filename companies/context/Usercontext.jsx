@@ -6,6 +6,7 @@ import { setposts, setresponses } from "../Redux/companySlice";
 export const userdatacontext = createContext();
 const Userdata=({children})=>{ 
  let server = "https://job-portal-backend-nyys.onrender.com"
+// let server = "http://localhost:3000"
  let [reccompany,setreccompany] = useState("")
  let dispatch = useDispatch()
     const curcompany=async()=>{
