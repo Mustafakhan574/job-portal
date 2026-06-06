@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 const Login = () => {
   let [email,setemail] = useState("");   
    let [password,setpassword] = useState("");
-   let [passerror,setpasserror] = usestate("")
+   let [passerror,setpasserror] = useState("")
    let {server,setcuradmin} = useContext(authdata);
    let navigate = useNavigate();
    const login=async(e)=>{
@@ -17,7 +17,8 @@ const Login = () => {
     setcuradmin(result.data)
     navigate("/")
           }catch(err){
-                console.log(err?.response?.data?.message)    
+            console.log(err?.response?.data?.message)
+                setpasserror(err?.response?.data?.message)    
           }
  }
   return (
