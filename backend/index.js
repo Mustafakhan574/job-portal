@@ -14,6 +14,11 @@ app.use(cors({
           origin:[
     "https://job-portal-users.onrender.com",
     "https://job-portal-companies.onrender.com","https://job-portal-admin-7jgy.onrender.com"],
+//  origin:[
+//       "http://localhost:5175",
+//       "http://localhost:5174",
+//       "http://localhost:5173"
+// ],
           credentials:true
 }))
 app.use("/users",userRouter)

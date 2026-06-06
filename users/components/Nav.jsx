@@ -11,6 +11,7 @@ const Nav = () => {
   let navigate = useNavigate()
   let [input,setinput] = useState("")
   let {userdata,copyuserdata} = useSelector((state)=>state.user)
+  console.log("userdata",userdata)
   let {handlelogout} = useContext(userdatacontext)
   console.log("copy data",copyuserdata)
   let dispatch = useDispatch()
@@ -33,7 +34,14 @@ const Nav = () => {
     </div>
     <div className='w-[50%] h-[100%] hidden justify-center items-center sm:flex'>
      <input type="text" placeholder='Search jobs here...'
-     className='border w-[100%] h-[70%] rounded-3xl placeholder:text-[black] font-bold pl-3 rounded-r-none' onChange={(e)=>setinput(e.target.value)} value={input} onKeyDown={(e)=>{
+     className='border w-[100%] h-[70%] rounded-3xl placeholder:text-[black] font-bold pl-3 rounded-r-none' 
+     onChange={(e)=>{
+      const value = e.target.value
+      setinput(value)
+      if (value.trim() === "") {
+    dispatch(setcopyuserdata(userdata));
+  }
+    }} value={input} onKeyDown={(e)=>{
       if(e.key === "Enter"){
         handlesearch();
       }
@@ -49,9 +57,16 @@ const Nav = () => {
          <p><MdLogout  className='w-[90%] font-bold text-[40px]'/><span className='text-[15px] w-[70%] font-bold'>Logout</span></p>
     </div>
     </div>
+     {/* for small devices  */}
     <div className='w-full h-[90px] rounded-2xl flex justify-center items-center px-9 sm:hidden'>
           <input type="text" placeholder='Search jobs here...'
-     className='border w-[80%] h-[70%] rounded-3xl placeholder:text-[black] font-bold pl-3 rounded-r-none bg-white' onChange={(e)=>setinput(e.target.value)} value={input} onKeyDown={(e)=>{
+     className='border w-[80%] h-[70%] rounded-3xl placeholder:text-[black] font-bold pl-3 rounded-r-none bg-white' onChange={(e)=>{
+      const value = e.target.value
+      setinput(value)
+      if (value.trim() === "") {
+    dispatch(setcopyuserdata(userdata));
+  }
+    }} value={input} onKeyDown={(e)=>{
       if(e.key === "Enter"){
         handlesearch();
       }

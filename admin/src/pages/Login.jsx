@@ -5,7 +5,8 @@ import { useNavigate } from "react-router-dom";
 const Login = () => {
   let [email,setemail] = useState("");   
    let [password,setpassword] = useState("");
-   let {server} = useContext(authdata);
+   let [passerror,setpasserror] = usestate("")
+   let {server,setcuradmin} = useContext(authdata);
    let navigate = useNavigate();
    const login=async(e)=>{
           e.preventDefault()
@@ -13,10 +14,10 @@ const Login = () => {
     let result = await axios.post(`${server}/users/adminlogin`,{
           email,password
     },{withCredentials:true})
-    console.log(result.data)
+    setcuradmin(result.data)
     navigate("/")
           }catch(err){
-                console.log("err in login",err)    
+                console.log(err?.response?.data?.message)    
           }
  }
   return (
@@ -31,6 +32,8 @@ const Login = () => {
                   <div className='flex flex-col'>
                <label htmlFor='Password' className='text-lg mb-1'>Password: </label>
                   <input type="text" placeholder='enter Password...' className='border px-3 py-2  focus:outline-none focus:ring-1  rounded-lg focus:ring-black' id='Password' onChange={(e)=>setpassword(e.target.value)} value={password}/>
+                  {passerror && <h1 className="
+                  text-red-700">{passerror}</h1>}
                   </div>
                   <div className='w-[100%] flex justify-center'>
                     <button className='text-[black] bg-[aqua] w-[90%] px-4 py-2 border rounded-sm font-bold text-[20px]  focus:text-[30px]'>Login</button>

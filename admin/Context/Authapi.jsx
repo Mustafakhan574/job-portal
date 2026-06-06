@@ -8,6 +8,7 @@ const Authapi = ({children}) => {
           let server = "https://job-portal-backend-nyys.onrender.com"
        //let server = "http://localhost:3000"
           let [curadmin,setcuradmin] = useState("");
+          console.log(curadmin)
           let [usersaccounts,setusersaccounts] = useState([]);
           let [companyaccounts,setcompanyaccounts] = useState([]);
           const handlecuradmin=async()=>{
@@ -56,7 +57,8 @@ const Authapi = ({children}) => {
              handlecuradmin,
              curadmin, 
              usersaccounts,
-             companyaccounts      
+             companyaccounts,
+             setcuradmin      
           }
   return (
     <div>

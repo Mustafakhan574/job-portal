@@ -6,6 +6,7 @@ import { userdatacontext } from "../context/Usercontext";
 const Login = () => {
   let [email,setemail] = useState("");   
    let [password,setpassword] = useState("");
+   let [passerror,setpasserror] = useState("")
    let {server,curuser} = useContext(userdatacontext)
    const login=async(e)=>{
           e.preventDefault()
@@ -17,7 +18,8 @@ const Login = () => {
     curuser();
     navigate("/")
           }catch(err){
-                console.log("err in signup",err)    
+                setpasserror(err?.response?.data?.message) 
+                console.log(err)   
           }
  }
   return (
@@ -27,12 +29,13 @@ const Login = () => {
              <form  className='flex flex-col gap-4' onSubmit={login}>
                   <div className='flex flex-col'>
                <label htmlFor='Email' className='text-lg mb-1'>Email: </label>
-                  <input type="email" placeholder='enter email...' className='border px-3 py-2  focus:outline-none focus:ring-1  rounded-lg focus:ring-black' id='Email' onChange={(e)=>setemail(e.target.value)} value={email}/>
+                  <input type="email" placeholder='enter email...' className='border px-3 py-2  focus:outline-none focus:ring-1  rounded-lg focus:ring-black' id='Email' onChange={(e)=>setemail(e.target.value)} value={email} required/>
                   </div>
                   <div className='flex flex-col'>
                <label htmlFor='Password' className='text-lg mb-1'>Password: </label>
-                  <input type="text" placeholder='enter Password...' className='border px-3 py-2  focus:outline-none focus:ring-1  rounded-lg focus:ring-black' id='Password' onChange={(e)=>setpassword(e.target.value)} value={password}/>
+                  <input type="text" placeholder='enter Password...' className='border px-3 py-2  focus:outline-none focus:ring-1  rounded-lg focus:ring-black' id='Password' onChange={(e)=>setpassword(e.target.value)} value={password} required/>
                   </div>
+                  {passerror && <h1 className="text-red-700">{passerror}</h1>}
                   <div className='w-[100%] flex justify-center'>
                     <button className='text-[black] bg-[aqua] w-[90%] px-4 py-2 border rounded-sm font-bold text-[20px]  focus:text-[30px]'>Login</button>
                   </div>

@@ -38,7 +38,7 @@ let result = await axios.post(`${server}/posts/apply/${postid}`,formData,{withCr
          alert("Applied successfully");
     navigate("/");
           }catch(err){
-                    console.log(err)
+                    console.log("FULL ERROR:", err.response?.data);
           }
                     }
          

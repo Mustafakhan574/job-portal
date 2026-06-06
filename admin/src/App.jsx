@@ -11,6 +11,7 @@ import { useContext } from 'react'
 import { authdata } from '../Context/Authapi'
 function App() {
   let {curadmin} = useContext(authdata)
+  console.log("app.jsx",curadmin)
   return (
     <Routes>
       <Route path='/' element={curadmin ? <Home/>:<Navigate to="/login"/>}/>

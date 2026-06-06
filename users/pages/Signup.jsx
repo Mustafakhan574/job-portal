@@ -42,7 +42,7 @@ let navigate = useNavigate();
                     <button className='text-[black] bg-[aqua] w-[90%] px-4 py-2 border rounded-sm font-bold text-[20px]  focus:text-[30px]'>Signup</button>
                   </div>
                   <div className='flex justify-center '>
-<p>Already have an acount then go to <span className='text-[red] font-bold text-2xl' onClick={()=>navigate("/login")}>Login</span></p>
+<p>Already have an account then go to <span className='text-[red] font-bold text-2xl' onClick={()=>navigate("/login")}>Login</span></p>
                   </div>
              </form>
              
