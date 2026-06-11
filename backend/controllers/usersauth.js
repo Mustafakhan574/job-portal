@@ -85,3 +85,20 @@ exports.curuser=async(req,res)=>{
 return res.status(400).json({message:"err in curuser",err})
           }
 }
+exports.deleteuser=async(req,res)=>{
+       try{
+  let {userid} = req.params;
+  if(!userid){
+       return res.status(404).json({
+              message:"user id not found"
+       })
+  }
+  let result = await User.findByIdAndDelete(userid)
+  let restusers= await User.find({})
+  return res.status(200).json(restusers)
+       }catch(err){
+              return res.status(500).json({
+                     message:err.message
+              })
+       }
+}

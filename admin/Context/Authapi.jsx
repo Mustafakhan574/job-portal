@@ -6,7 +6,7 @@ import { createContext } from 'react'
 export let authdata = createContext();
 const Authapi = ({children}) => {
           let server = "https://job-portal-backend-nyys.onrender.com"
-       //let server = "http://localhost:3000"
+//       let server = "http://localhost:3000"
           let [curadmin,setcuradmin] = useState("");
           console.log(curadmin)
           let [usersaccounts,setusersaccounts] = useState([]);
@@ -58,7 +58,9 @@ const Authapi = ({children}) => {
              curadmin, 
              usersaccounts,
              companyaccounts,
-             setcuradmin      
+             setcuradmin ,
+             setcompanyaccounts,
+             setusersaccounts     
           }
   return (
     <div>

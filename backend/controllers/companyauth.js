@@ -85,3 +85,20 @@ exports.curcompany=async(req,res)=>{
 return res.status(400).json({message:"err in curcompany",err})
           }
 }
+exports.deletecompany=async(req,res)=>{
+       try{
+  let {companyid} = req.params;
+  if(!companyid){
+       return res.status(404).json({
+              message:"company id not found"
+       })
+  }
+  let result = await Company.findByIdAndDelete(companyid)
+  let restcompanies = await Company.find({})
+  return res.status(200).json(restcompanies)
+       }catch(err){
+              return res.status(500).json({
+                     message:err.message
+              })
+       }
+}

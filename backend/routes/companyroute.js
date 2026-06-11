@@ -1,9 +1,11 @@
 const express = require("express");
-const { companysignup, companylogin, companylogout, curcompany } = require("../controllers/companyauth");
+const { companysignup, companylogin, companylogout, curcompany, deletecompany } = require("../controllers/companyauth");
 const companyauth = require("../middleware/companyauth");
+const adminauth = require("../middleware/adminauth");
 let companyRouter= express.Router();
 companyRouter.post("/companysignup",companysignup);
 companyRouter.post("/companylogin",companylogin);
 companyRouter.get("/companylogout",companylogout);
 companyRouter.get("/curcompany",companyauth,curcompany);
+companyRouter.get("/deletecompany/:companyid",adminauth,deletecompany);
 module.exports = companyRouter;
